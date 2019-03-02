@@ -15,10 +15,12 @@
       
       <section id="create-template">
           <div>
-              <h1 class="title">1 - Crie aqui o seu template</h1>
-              <button>Anexar template</button>
-              <a href="#">Dicas: Templates</a>
-              <img>
+              <div>
+                  <h1 class="title">1 - Crie aqui o seu template</h1>
+                  <input type='file' id="templateUpload"/>
+                  <a href="#">Dicas: Templates</a>
+              </div>
+              <canvas id="canvas" width="512" height="512"></canvas>
           </div>
       </section>
 
@@ -26,8 +28,7 @@
           <div>
               <h1 class="title">2 - Importe seus participantes</h1>
               <p>Copie o conteúdo da planilha excel, incluindo os cabeçalhos e cole aqui.</p>
-
-              <textarea></textarea>
+              <textarea id="nomes"></textarea>
           </div>
       </section>
 
