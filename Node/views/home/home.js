@@ -75,6 +75,14 @@ const gel = element => document.querySelector(element);
 
 gel('#download-button').addEventListener('click', () => {
   const data = textToData();
+  console.log(data);
+  data.forEach((each, i) => {
+    createCracha(data, i);
+  })
+});
+
+const createCracha = (data, i) => {
+
   ctx.clearRect(pontos[0].x, pontos[0].y, pontos[1].x, pontos[1].y);
   ctx.clearRect(pontos[2].x, pontos[2].y, pontos[3].x, pontos[3].y);
 
@@ -84,4 +92,4 @@ gel('#download-button').addEventListener('click', () => {
   $.post('/crachas', { image: { index: i, data: canvas.toDataURL() } }, (res) => {
     console.log(res);
   });
-});
+}
