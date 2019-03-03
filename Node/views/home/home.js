@@ -19,11 +19,29 @@ function readImage() {
 
 templateUpload.onchange = readImage;
 
+function deleteBox(){
+ ctx.clearRect(x-1, y-1, x2+2, y2+2);
+}
+
+var cont = 0;
+var x = 0;
+var y = 0;
+var x2 = 0;
+var y2 = 0;
 canvas.onclick = function(e) {
-  var x = e.offsetX;
-  var y = e.offsetY;
-  ctx.beginPath();
-  ctx.fillStyle = 'black';
-  ctx.arc(x, y, 5, 0, Math.PI * 2);
-  ctx.fill();
+  if (cont === 0){
+    x = e.offsetX;
+    y = e.offsetY;
+    cont++;
+  }
+
+  else{
+    x2 = e.offsetX - x;
+    y2 = e.offsetY - y;
+    ctx.beginPath();
+    ctx.fillStyle = 'black';
+    ctx.strokeRect(x, y, x2, y2);
+    ctx.fill();
+    cont = 0;
+  }
 };
