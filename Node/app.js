@@ -1,5 +1,5 @@
 // ==================== EXTERNAL IMPORTS ==================== //
-
+const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -19,6 +19,11 @@ app.use((req, res, next) => {
     next();
 });
 
+// parse post requests to body
+app.use(bodyParser.json({ limit: '50mb' }));
+// 50mb so it accepts base64 encoded images sent via POST
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -34,6 +39,17 @@ app.use('/views', express.static(path.join(__dirname, 'views')));
 const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
 // ==================== ROUTES ==================== //
+
+app.post('/crachas', (req, res) =>{
+    fs.writeFile(`./crachas/${req.body.image.index}.png`, req.body.image.data.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    
+        console.log("The file was saved!");
+    }); 
+    res.send('ok');
+});
 
 // ==================== RENDER VIEWS ==================== //
 

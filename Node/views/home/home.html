@@ -15,15 +15,20 @@
       
       <section id="create-template">
           <div>
-              <div>
+              <div class="noshow">
                   <h1 class="title">1 - Crie aqui o seu template</h1>
                   <input type='file' id="templateUpload"/>
                   <a href="#">Dicas: Templates</a>
               </div>
               <canvas id="canvas" width="512" height="512">
               </canvas>
-              <div>
+              <div class="func">
                   <button onclick="deleteBox()">Clique para deletar a label</button>
+                  <label for="nome">Nome da coluna que ficará na primeira label</label>
+                  <input id="nome" value="Ex. Nome">
+                  <label for="seg">Nome da coluna que ficará na segunda label</label>
+                  <input id="seg" value="Ex. Função">
+                  <button onclick="preencher()">clique</button>
               </div>
           </div>
       </section>
@@ -39,12 +44,13 @@
       <section id="download">
           <div>
               <h1 class="title">3 - Baixe os seus crachás</h1>
-              <button>Download</button>
+              <button id="download-button">Download</button>
           </div>
       </section>
 
   </main>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/views/home/home.js"></script>
 </html>
