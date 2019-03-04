@@ -18,11 +18,15 @@
               <div class="noshow">
                   <h1 class="title">1 - Crie aqui o seu template</h1>
                   <input type='file' id="templateUpload"/>
-                  <a href="#">Dicas: Templates</a>
+                  <a href="https://blog.even3.com.br/crachas-para-eventos-academicos/" target="_blank">Dicas: Templates</a>
               </div>
               <canvas id="canvas" width="512" height="512">
               </canvas>
               <div class="func">
+                  <label for="color">Coloque aqui a cor do background de onde vai o nome</label>
+                  <input id="color">
+                  <label for="text">Coloque aqui as especificações do texto.</label>
+                  <input id="text">
                   <button onclick="deleteBox()">Clique para deletar a label</button>
                   <label for="nome">Nome da coluna que ficará na primeira label</label>
                   <input id="nome" value="Ex. Nome">

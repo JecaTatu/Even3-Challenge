@@ -20,7 +20,8 @@ function readImage() {
 templateUpload.onchange = readImage;
 
 function deleteBox() {
-  ctx.clearRect(x - 1, y - 1, x2 + 2, y2 + 2);
+  ctx.fillStyle = document.getElementById('color').value;
+  ctx.fillRect(x - 1, y - 1, x2 + 2, y2 + 2);
 }
 
 let cont = 0;
@@ -33,9 +34,9 @@ const pontos = [];
 
 function preencher() {
   let nome = document.getElementById('nome').value;
-  ctx.font = "20px Georgia";
-  ctx.strokeText(nome, x + 15, y + 15);
-  console.log(pontos);
+  ctx.font = document.getElementById('text').value;
+  ctx.fillStyle = 'black';
+  ctx.fillText(nome, x + 25, y + 25);
 }
 
 canvas.onclick = function (e) {
@@ -82,12 +83,14 @@ gel('#download-button').addEventListener('click', () => {
 });
 
 const createCracha = (data, i) => {
+  ctx.fillRect(pontos[0].x, pontos[0].y, pontos[1].x, pontos[1].y);
+  ctx.fillRect(pontos[2].x, pontos[2].y, pontos[3].x, pontos[3].y);
 
-  ctx.clearRect(pontos[0].x, pontos[0].y, pontos[1].x, pontos[1].y);
-  ctx.clearRect(pontos[2].x, pontos[2].y, pontos[3].x, pontos[3].y);
+  ctx.font = document.getElementById('text').value;
+  ctx.fillStyle = '#ffffff';
 
-  ctx.strokeText(data[i][gel('#nome').value], pontos[0].x + 15, pontos[0].y + 15);
-  ctx.strokeText(data[i][gel('#seg').value], pontos[2].x + 15, pontos[2].y + 15);
+  ctx.strokeText(data[i][gel('#nome').value], pontos[0].x + 85, pontos[0].y + 15);
+  ctx.strokeText(data[i][gel('#seg').value], pontos[2].x + 75, pontos[2].y + 15);
 
   $.post('/crachas', { image: { index: i, data: canvas.toDataURL() } }, (res) => {
     console.log(res);

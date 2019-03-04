@@ -41,7 +41,7 @@ const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 // ==================== ROUTES ==================== //
 
 app.post('/crachas', (req, res) =>{
-    fs.writeFile(`./crachas/${req.body.image.index}.png`, req.body.image.data.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
+    fs.writeFile(`./crachas/${req.body.image.index}.JPEG`, req.body.image.data.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
         if(err) {
             return console.log(err);
         }
