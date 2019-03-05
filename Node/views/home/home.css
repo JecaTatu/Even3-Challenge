@@ -1,8 +1,15 @@
 body {
-  margin: 0;
+  margin: 10px;;
   text-align: center;
+  font-family: 'Work Sans', sans-serif;
 }
 
+header img{
+  width: 128px;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
 #canvas {
   border: 1px solid black;
   margin-top: 10px;
@@ -13,6 +20,26 @@ body {
   height: 500px;
 }
 
-.func{
+.big-func{
   flex-direction: column;
+}
+
+.func{
+  width: 30%;
+  margin: auto;
+
+}
+
+.func input{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+textarea{
+  resize: none;
 }

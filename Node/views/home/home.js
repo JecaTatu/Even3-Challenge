@@ -19,7 +19,7 @@ function readImage() {
 
 templateUpload.onchange = readImage;
 
-function deleteBox() {
+function createBox() {
   ctx.fillStyle = document.getElementById('color').value;
   ctx.fillRect(x - 1, y - 1, x2 + 2, y2 + 2);
 }

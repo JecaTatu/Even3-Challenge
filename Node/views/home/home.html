@@ -5,49 +5,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <!-- Import of the bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Import font -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
   <link rel="stylesheet" href="/views/home/home.css">
-  <title>Home</title>
+  <title>Elabore seu Crachá</title>
 </head>
 
 <body>
-  <header></header>
+  <header>
+      <img src="/assets/even3.png" alt="logo da even3">
+  </header>
   <main id="main-container">
       
       <section id="create-template">
-          <div>
-              <div>
-                  <h1 class="title">1 - Crie aqui o seu template</h1>
-                  <input type='file' id="templateUpload"/>
-                  <a href="https://blog.even3.com.br/crachas-para-eventos-academicos/" target="_blank">Dicas: Templates</a>
+          <div >
+              <div class="canvas">
+                  <h1 class="title"><span class="badge badge-info">1</span> Crie aqui o seu template</h1>
+                  <input type='file'  id="templateUpload"/>
+                  <div>
+                      <a href="https://blog.even3.com.br/crachas-para-eventos-academicos/" target="_blank">Dicas: Templates</a>
+                  </div>
+                  <canvas id="canvas" width="512" height="512"></canvas>
               </div>
-              <canvas id="canvas" width="512" height="512">
-              </canvas>
-              <div class="func">
-                  <div>
-                      <label for="color">Coloque aqui a cor do background de onde vai o nome</label>
-                      <input id="color">
+              <div class="big-func">
+                  <div class="func">
+                      <label for="color" >Aqui vai a cor do background de onde vai o nome</label>
+                      <input id="color" placeholder="#ffffff or white">
                   </div>
-                  <div>
-                      <label for="text">Coloque aqui as especificações do texto.</label>
-                      <input id="text">
+                  <button onclick="createBox()" class="btn btn-outline-primary">Clique para criar a label</button>
+                  <div class="func">
+                      <label for="text" >Aqui vão as especificações do texto.</label>
+                      <input id="text" placeholder="bold 30px Arial">
                   </div>
-                  <button onclick="deleteBox()">Clique para deletar a label</button>
-                  <div>
-                      <label for="nome">Nome da coluna que ficará na primeira label</label>
-                      <input id="nome" value="Ex. Nome">
+                  <div class="func">
+                      <label for="nome" >Nome da coluna que ficará na primeira label</label>
+                      <input id="nome" placeholder="Nome">
                   </div>
-                  <div>
-                      <label for="seg">Nome da coluna que ficará na segunda label</label>
-                      <input id="seg" value="Ex. Função">
+                  <div class="func">
+                      <label for="seg" >Nome da coluna que ficará na segunda label</label>
+                      <input id="seg" placeholder="País">
                   </div>
-                  <button onclick="preencher()">clique</button>
               </div>
           </div>
       </section>
 
       <section id="input-persons">
           <div>
-              <h1 class="title">2 - Importe seus participantes</h1>
+              <h1 class="title"><span class="badge badge-info">2</span> Importe seus participantes</h1>
               <p>Copie o conteúdo da planilha excel, incluindo os cabeçalhos e cole aqui.</p>
               <textarea id="nomes"></textarea>
           </div>
@@ -55,8 +63,8 @@
 
       <section id="download">
           <div>
-              <h1 class="title">3 - Baixe os seus crachás</h1>
-              <button id="download-button">Download</button>
+              <h1 class="title"><span class="badge badge-info">3</span> Baixe os seus crachás</h1>
+              <button id="download-button" class="btn btn-outline-primary">Download</button>
           </div>
       </section>
 
