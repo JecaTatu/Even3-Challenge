@@ -1,4 +1,4 @@
-//Uploading and showing the template
+//Upando e mostrando o template
 let templateUpload = document.getElementById('templateUpload');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext("2d");
@@ -19,6 +19,7 @@ function readImage() {
 
 templateUpload.onchange = readImage;
 
+// Demarcando onde se vai setar os nomes
 function createBox() {
   ctx.fillStyle = document.getElementById('color').value;
   ctx.fillRect(x - 1, y - 1, x2 + 2, y2 + 2);
@@ -39,6 +40,7 @@ function preencher() {
   ctx.fillText(nome, x + 25, y + 25);
 }
 
+// Salvando os pontos e setando o retângulo no template
 canvas.onclick = function (e) {
   if (cont === 0) {
     x = e.offsetX;
@@ -59,6 +61,7 @@ canvas.onclick = function (e) {
   }
 };
 
+//Convertendo o texto presente no text area em uma matriz e depois em um objeto
 const textToData = () => {
   const rawData = gel('#nomes').value.split('\n').map(line => line.split('\t'));
   const data = [];
@@ -72,10 +75,12 @@ const textToData = () => {
   return data;
 };
 
+// Alias para agilizar
 const gel = element => document.querySelector(element);
 
 const crachas = [];
 
+// Fazendo o download dos templates e dos pdfs
 gel('#download-button').addEventListener('click', () => {
   const data = textToData();
   console.log(data);
@@ -84,6 +89,7 @@ gel('#download-button').addEventListener('click', () => {
   })
 });
 
+// Transformando o canvas em uma imagem e salvando ela, e também inserindo em um pdf e saalvando ele
 const createCracha = (data, i) => {
   ctx.fillRect(pontos[0].x, pontos[0].y, pontos[1].x, pontos[1].y);
   ctx.fillRect(pontos[2].x, pontos[2].y, pontos[3].x, pontos[3].y);

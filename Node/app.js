@@ -19,9 +19,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// parse post requests to body
+// Parsa requests de post para body
 app.use(bodyParser.json({ limit: '50mb' }));
-// 50mb so it accepts base64 encoded images sent via POST
+// 50mb para aceitar imagens em base64 enviadas via post
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // parse application/x-www-form-urlencoded
@@ -30,17 +30,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// serving static files
+// Arquivos estáticos
 app.use('/views', express.static(path.join(__dirname, 'views')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ==================== FUNCTIONS ==================== //
 
-// returns the full path of the passed view
+// Retorna o caminho passado na view
 const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
 // ==================== ROUTES ==================== //
-
+// Setando o caminho para salvar a imagem na máquina
 app.post('/crachas', (req, res) =>{
     fs.writeFile(`./crachas/${req.body.image.index}.JPEG`, req.body.image.data.replace(/^data:image\/png;base64,/, ""), 'base64', function(err) {
         if(err) {
