@@ -74,6 +74,8 @@ const textToData = () => {
 
 const gel = element => document.querySelector(element);
 
+const crachas = [];
+
 gel('#download-button').addEventListener('click', () => {
   const data = textToData();
   console.log(data);
@@ -95,4 +97,11 @@ const createCracha = (data, i) => {
   $.post('/crachas', { image: { index: i, data: canvas.toDataURL() } }, (res) => {
     console.log(res);
   });
+
+  crachas.push(canvas.toDataURL());
+
+  var doc = new jsPDF()
+  doc.addImage(crachas[i], 'JPEG', 15, 40, 180, 160)
+  doc.save('cracha.pdf');
+
 }
