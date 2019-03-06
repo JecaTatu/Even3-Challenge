@@ -33,13 +33,6 @@ let y2 = 0;
 
 const pontos = [];
 
-function preencher() {
-  let nome = document.getElementById('nome').value;
-  ctx.font = document.getElementById('text').value;
-  ctx.fillStyle = 'black';
-  ctx.fillText(nome, x + 25, y + 25);
-}
-
 // Salvando os pontos e setando o retângulo no template
 canvas.onclick = function (e) {
   if (cont === 0) {
@@ -95,10 +88,10 @@ const createCracha = (data, i) => {
   ctx.fillRect(pontos[2].x, pontos[2].y, pontos[3].x, pontos[3].y);
 
   ctx.font = document.getElementById('text').value;
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = document.getElementById('color').value;
 
-  ctx.strokeText(data[i][gel('#nome').value], pontos[0].x + 85, pontos[0].y + 15);
-  ctx.strokeText(data[i][gel('#seg').value], pontos[2].x + 75, pontos[2].y + 15);
+  ctx.strokeText(data[i][gel('#nome').value], pontos[0].x + 85, pontos[0].y + 25);
+  ctx.strokeText(data[i][gel('#seg').value], pontos[2].x + 75, pontos[2].y + 25);
 
   $.post('/crachas', { image: { index: i, data: canvas.toDataURL() } }, (res) => {
     console.log(res);
