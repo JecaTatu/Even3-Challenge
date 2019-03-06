@@ -5,11 +5,17 @@ Desenvolvido utilizando Javascript, Jquery, NodeJS, HTML5, CSS3, BootStrap 4 e a
 
 ## Rodando o projeto
 
-1. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm). Feito isso, dentro da pasta do projeto após dar ```$ git clone https://github.com/JecaTatu/Even3-Challenge.git```, execute ```$ npm install ``` para instalar todos os requerimentos do projeto.
+1. É necessário ter instalado o [npm](https://www.npmjs.com/get-npm). Feito isso, dê ```$ git clone https://github.com/JecaTatu/Even3-Challenge.git```
 
-2. Digite ```$ node app.js ``` para rodar o servidor.
+2. Digite ```$ cd Even3-Challenge```
 
-3. Acesse ``` localhost:3000 ```
+3. Digite ```$ cd Node``` 
+
+4. Execute ```$ npm install ``` para instalar todos os requerimentos do projeto.
+
+5. Digite ```$ node app.js ``` para rodar o servidor.
+
+6. Acesse ``` localhost:3000 ```
 
 ## Dificuldades no decorrer do projeto.
 Olhando aqui o repositório do projeto, percebe-se que existe um outro projeto em Django, que foi minha tentativa inicial, porém resolvi mudar para node, pois havia entendido o projeto de maneira errada e vi que me complicaria um pouco fazendo com Django.
